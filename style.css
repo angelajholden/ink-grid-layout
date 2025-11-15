@@ -142,7 +142,7 @@ h3 {
 }
 
 .secondary_heading {
-	font-size: 3rem;
+	font-size: clamp(2rem, 4vw, 3rem);
 }
 
 /* Header */
@@ -154,6 +154,11 @@ h3 {
 	width: 100%;
 	background-color: var(--white);
 	box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 10%);
+	transition: top 150ms linear;
+}
+
+.scrolled .header {
+	top: -180px;
 }
 
 .top_banner {
@@ -201,11 +206,16 @@ h3 {
 	text-decoration-color: var(--black);
 }
 
+.primary_heading {
+	padding: 1rem 0;
+	margin: 0;
+}
+
 .primary_heading svg {
 	width: 300px;
 	max-width: 100%;
 	height: auto;
-	margin: 2rem auto;
+	margin: 0 auto;
 }
 
 @media (max-width: 1024px) {
@@ -214,6 +224,10 @@ h3 {
 		flex-flow: row wrap;
 		justify-content: space-between;
 		align-items: center;
+	}
+
+	.scrolled .header {
+		top: -45px;
 	}
 
 	.top_nav {
@@ -517,4 +531,122 @@ input[type="search"] {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+
+@media (max-width: 960px) {
+	.hero {
+		padding: 1rem 0;
+		margin: 1rem;
+	}
+
+	.hero .wrap {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+}
+
+/* Layout Grid */
+.grid .wrap {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.card .figure {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1.5 / 1;
+}
+
+.card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@media (max-width: 960px) {
+	.grid .wrap {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+}
+
+@media (max-width: 500px) {
+	.grid .wrap {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Slider */
+.slider_wrap {
+	position: relative;
+}
+
+.slider {
+	position: relative;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	aspect-ratio: 1.5 /1;
+	z-index: 0;
+}
+
+.slide {
+	position: absolute;
+	inset: 0;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	z-index: 1;
+	transition: all 300ms ease-in-out;
+}
+
+.slide.active {
+	visibility: visible;
+	opacity: 1;
+	pointer-events: all;
+}
+
+.slide .figure {
+	width: 100%;
+	height: 100%;
+}
+
+.slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.slider_controls {
+	position: absolute;
+	inset: 0;
+	margin: 0 0.5rem;
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.arrow_button {
+	padding: 0.75rem;
+	border-radius: 50%;
+	border: 2px solid var(--white);
+	background-color: rgba(255, 255, 255, 100%);
+	transition: background-color 300ms ease-in-out;
+}
+
+.arrow_button svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.arrow_button:focus,
+.arrow_button:hover,
+.arrow_button:active {
+	background-color: rgba(255, 255, 255, 75%);
 }

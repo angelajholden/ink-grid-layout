@@ -10,9 +10,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="style.css">
+	<script defer src="script.js"></script>
 </head>
 
 <body id="top" class>
+	<div aria-hidden="true" class="on_scroll"></div>
 	<header class="header">
 		<div class="top_banner">
 			<div class="wrap">
@@ -109,35 +111,37 @@
 				</article>
 				<!-- Slider -->
 				<article class="card">
-					<ul class="slider">
-						<li class="slide">
-							<figure class="figure">
-								<img src="images/chris-czermak-PamFFHL6fVY-unsplash.jpg" alt="Trevi Fountain, Rome, Italy - Marble Roman Statues" />
-							</figure>
-						</li>
-						<li class="slide">
-							<figure class="figure">
-								<img src="images/david-kohler-VFRTXGw1VjU-unsplash.jpg" alt="Colosseum Exterior, Roma, Italy" />
-							</figure>
-						</li>
-						<li class="slide">
-							<figure class="figure">
-								<img src="images/alex-vasey-F5HtPjpBb9k-unsplash.jpg" alt="Leaning Tower of Pisa, Pisa, Italy" />
-							</figure>
-						</li>
-					</ul>
-					<ul class="slider_controls">
-						<li class="slider_button">
-							<button type="button" class="previous arrow_button" aria-label="Previous Slide">
-								<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M328 112L184 256l144 144" /></svg>
-							</button>
-						</li>
-						<li class="slider_button">
-							<button type="button" class="next arrow_button" aria-label="Next Slide">
-								<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M184 112l144 144-144 144" /></svg>
-							</button>
-						</li>
-					</ul>
+					<div class="slider_wrap">
+						<ul class="slider">
+							<li class="slide">
+								<figure class="figure">
+									<img src="images/chris-czermak-PamFFHL6fVY-unsplash.jpg" alt="Trevi Fountain, Rome, Italy - Marble Roman Statues" />
+								</figure>
+							</li>
+							<li class="slide active">
+								<figure class="figure">
+									<img src="images/david-kohler-VFRTXGw1VjU-unsplash.jpg" alt="Colosseum Exterior, Roma, Italy" />
+								</figure>
+							</li>
+							<li class="slide">
+								<figure class="figure">
+									<img src="images/alex-vasey-F5HtPjpBb9k-unsplash.jpg" alt="Leaning Tower of Pisa, Pisa, Italy" />
+								</figure>
+							</li>
+						</ul>
+						<ul class="slider_controls">
+							<li class="slider_button">
+								<button type="button" class="previous arrow_button" aria-label="Previous Slide">
+									<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M328 112L184 256l144 144" /></svg>
+								</button>
+							</li>
+							<li class="slider_button">
+								<button type="button" class="next arrow_button" aria-label="Next Slide">
+									<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M184 112l144 144-144 144" /></svg>
+								</button>
+							</li>
+						</ul>
+					</div>
 					<div class="card_content">
 						<div class="category">LifeStyle</div>
 						<h3 class="tertiary_heading">Being Your True Self</h3>
@@ -165,7 +169,7 @@
 				<!-- Audio Player -->
 				<article class="card">
 					<figure class="figure">
-						<img src="images/clifford-VobvKmG-StA-unsplash 2.jpg" alt="Interior of a cafe." />
+						<img src="images/luca-micheli-r9RW20TrQ0Y-unsplash.jpg" alt="Interior of a cafe." />
 						<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M411.16 97.46C368.43 55.86 311.88 32 256 32S143.57 55.86 100.84 97.46C56.45 140.67 32 197 32 256c0 26.67 8.75 61.09 32.88 125.55S137 473 157.27 477.41c5.81 1.27 12.62 2.59 18.73 2.59a60.06 60.06 0 0030-8l14-8c15.07-8.82 19.47-28.13 10.8-43.35l-86.92-152.57a31.73 31.73 0 00-43.57-11.76l-13.69 8a56.49 56.49 0 00-14 11.59 4 4 0 01-7-2A114.68 114.68 0 0164 256c0-50.31 21-98.48 59.16-135.61C160 84.55 208.39 64 256 64s96 20.55 132.84 56.39C427 157.52 448 205.69 448 256a114.68 114.68 0 01-1.68 17.91 4 4 0 01-7 2 56.49 56.49 0 00-14-11.59l-13.69-8a31.73 31.73 0 00-43.57 11.76L281.2 420.65c-8.67 15.22-4.27 34.53 10.8 43.35l14 8a60.06 60.06 0 0030 8c6.11 0 12.92-1.32 18.73-2.59C375 473 423 446 447.12 381.55S480 282.67 480 256c0-59-24.45-115.33-68.84-158.54z" /></svg>
 					</figure>
 					<div class="card_content">
@@ -181,7 +185,7 @@
 				<!-- Video Player -->
 				<article class="card">
 					<figure class="figure">
-						<img src="images/clifford-VobvKmG-StA-unsplash 2.jpg" alt="Interior of a cafe." />
+						<img src="images/igor-oliyarnik-Uu5aXBI1oLk-unsplash.jpg" alt="Interior of a cafe." />
 						<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M190.06 414l163.12-139.78a24 24 0 000-36.44L190.06 98c-15.57-13.34-39.62-2.28-39.62 18.22v279.6c0 20.5 24.05 31.56 39.62 18.18z" /></svg>
 					</figure>
 					<div class="card_content">
