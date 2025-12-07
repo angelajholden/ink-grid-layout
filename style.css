@@ -651,6 +651,7 @@ input[type="search"] {
 
 .hero .figure::before {
 	border-radius: 50%;
+	z-index: 0;
 }
 
 .hero img {
