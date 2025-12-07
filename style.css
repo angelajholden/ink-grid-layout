@@ -125,6 +125,16 @@ p {
 	z-index: 0;
 }
 
+.circle {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 2px solid var(--gray);
+	background-color: transparent;
+	margin-inline: clamp(0.25rem, 1vw, 1rem);
+}
+
 .button_container {
 	text-align: center;
 	margin: 2rem 0;
@@ -211,6 +221,7 @@ p {
 
 .button.border div {
 	padding: 0.75rem 1.5rem;
+	white-space: nowrap;
 	background-color: var(--white);
 	transition: background-color 300ms ease-in-out;
 }
@@ -317,6 +328,10 @@ p {
 	margin: 0 auto;
 }
 
+.search_active .primary_heading {
+	visibility: hidden;
+}
+
 @media (max-width: 1024px) {
 	.header {
 		display: flex;
@@ -335,7 +350,7 @@ p {
 
 	.primary_heading {
 		margin: 0;
-		padding: 0 0.5rem;
+		padding: 0.5rem 1rem;
 	}
 
 	.primary_heading svg {
@@ -412,30 +427,32 @@ p {
 	.menu_button {
 		display: block;
 		padding: 0.5rem;
-		margin: 0.5rem 0.5rem 0.5rem auto;
-		border-radius: 50%;
-		border: 2px solid var(--blue);
-		background-color: var(--blue);
+		border-radius: 5px;
+		background-color: transparent;
 		transition: background-color 300ms ease-in-out;
+	}
+
+	.close_button {
+		margin: 0.5rem 0.5rem 0.5rem auto;
 	}
 
 	.menu_button svg {
 		width: 2rem;
 		height: 2rem;
-		stroke: var(--white);
+		stroke: var(--black);
 		transition: stroke 300ms ease-in-out;
 	}
 
 	.menu_button:focus,
 	.menu_button:hover,
 	.menu_button:active {
-		background-color: transparent;
+		background-color: var(--blue);
 	}
 
 	.menu_button:focus svg,
 	.menu_button:hover svg,
 	.menu_button:active svg {
-		stroke: var(--blue);
+		stroke: var(--white);
 	}
 
 	.nav_container {
@@ -444,9 +461,9 @@ p {
 	}
 
 	.nav_container .wrap {
-		position: relative;
 		padding: 0 0.5rem;
 		flex-flow: row wrap;
+		gap: 0.25rem;
 	}
 
 	.navigation {
@@ -508,9 +525,10 @@ p {
 
 input[type="search"] {
 	width: 100%;
-	padding: 1.1rem 3rem 1.1rem 0.25rem;
+	padding: 0.25rem 3rem 0.25rem 0.25rem;
 	border: none;
-	border-bottom: 1px solid var(--red);
+	border-bottom: 1px solid var(--black);
+	line-height: 2;
 }
 
 .submit {
@@ -525,7 +543,7 @@ input[type="search"] {
 .submit svg {
 	width: 1.5rem;
 	height: 1.5rem;
-	stroke: var(--red);
+	stroke: var(--black);
 }
 
 @media (max-width: 1024px) {
@@ -536,46 +554,45 @@ input[type="search"] {
 	.open_search {
 		display: block;
 		padding: 0.5rem;
-		margin: 0.5rem 0.5rem 0.5rem auto;
-		border-radius: 50%;
-		border: 2px solid var(--blue);
-		background-color: var(--blue);
+		border-radius: 5px;
+		background-color: transparent;
 		transition: background-color 300ms ease-in-out;
 	}
 
 	.open_search svg {
 		width: 2rem;
 		height: 2rem;
-		stroke: var(--white);
+		stroke: var(--black);
 		transition: stroke 300ms ease-in-out;
 	}
 
 	.open_search:focus,
 	.open_search:hover,
 	.open_search:active {
-		background-color: transparent;
+		background-color: var(--blue);
 	}
 
 	.open_search:focus svg,
 	.open_search:hover svg,
 	.open_search:active svg {
-		stroke: var(--blue);
+		stroke: var(--white);
 	}
 
 	.close_search {
 		position: absolute;
-		top: -0.5rem;
+		top: 50%;
 		left: -3rem;
-		padding: 0.75rem;
+		transform: translateY(-50%);
+		padding: 0.5rem;
 	}
 
 	.close_search svg {
-		width: 1.5rem;
-		height: 1.5rem;
-		stroke: var(--blue);
-		background-color: transparent;
-		border-radius: 50%;
-		border: 2px solid var(--blue);
+		width: 2rem;
+		height: 2rem;
+		stroke: var(--black);
+		/* background-color: transparent; */
+		border-radius: 5px;
+		/* border: 2px solid var(--blue); */
 		transition: stroke 300ms ease-in-out, background-color 300ms ease-in-out;
 	}
 
@@ -590,10 +607,11 @@ input[type="search"] {
 		visibility: hidden;
 		opacity: 0;
 		pointer-events: none;
+		/* absolutely positioned to the .header which is position: sticky */
 		position: absolute;
-		top: 50%;
-		right: 0;
-		transform: translate(0, -50%);
+		bottom: 0.5rem;
+		right: 1rem;
+		width: calc(100% - 4rem);
 		transition: all 150ms ease-in-out;
 	}
 
@@ -603,6 +621,7 @@ input[type="search"] {
 		pointer-events: all;
 	}
 
+	.menu_active .open_search,
 	.search_active .open_search,
 	.search_active .open_button {
 		visibility: hidden;
@@ -688,6 +707,10 @@ input[type="search"] {
 }
 
 @media (max-width: 960px) {
+	.grid {
+		margin: 0 0 2rem;
+	}
+
 	.grid .wrap {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
@@ -988,18 +1011,22 @@ input[type="search"] {
 }
 
 @media (max-width: 1024px) {
-	.items .wrap {
-		grid-template-columns: 1fr;
+	.comment .figure {
+		max-width: 150px;
+	}
+}
+
+@media (max-width: 450px) {
+	.item .comment {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		margin: 0;
 		gap: 1rem;
 	}
 
-	.items .figure {
-		max-width: 300px;
-		margin: 0 auto 1rem;
-	}
-
-	.comment .figure {
-		max-width: 150px;
+	.comment .user {
+		text-align: center;
 	}
 }
 
@@ -1069,6 +1096,33 @@ input[type="search"] {
 	fill: var(--white);
 }
 
+@media (max-width: 1024px) {
+	.social_nav {
+		grid-template-columns: 1fr;
+	}
+
+	.social_nav li {
+		text-align: left;
+		padding: 0 0 0.5rem;
+		margin: 0 0 0.5rem;
+		border-right: none;
+		border-bottom: 1px dashed var(--baby-blue);
+	}
+
+	.social_nav li:last-of-type {
+		padding: 0;
+		margin: 0;
+		border-bottom: none;
+	}
+
+	.social_nav a {
+		display: block;
+		width: 200px;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+}
+
 /* Instagram */
 .instagram {
 	position: relative;
@@ -1098,8 +1152,13 @@ input[type="search"] {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-
 	z-index: 1;
+}
+
+@media (max-width: 1024px) {
+	.instagram {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 
 /* Bottom Footer */
@@ -1138,4 +1197,24 @@ input[type="search"] {
 	height: 3rem;
 	line-height: 1.25;
 	transform: rotate(-90deg);
+}
+
+@media (max-width: 1024px) {
+	.footer {
+		padding: 1rem 0;
+	}
+
+	.copyright_statement {
+		padding: 2rem 0 0;
+	}
+
+	.items .wrap {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	.items .figure {
+		max-width: 150px;
+		margin: 1rem auto;
+	}
 }
