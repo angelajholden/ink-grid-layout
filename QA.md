@@ -1,8 +1,8 @@
 # QA
 
--   style search for mobile
--   refine all mobile style
--   implement slider (js)
--   implement video (js)
--   mobile styles for social nav
--   mobile styles for instagram
+-   style search for mobile DONE
+-   refine all mobile style DONE
+-   implement slider (js) DONE
+-   implement video (js) DONE
+-   mobile styles for social nav DONE
+-   mobile styles for instagram DONE
